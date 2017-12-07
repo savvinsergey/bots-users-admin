@@ -1,0 +1,27 @@
+.user-row {
+  display: flex;
+  align-items: center;
+  .avatar {
+    padding: 0 10px;
+  }
+  .user-form-buttons{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-bottom: 15px;
+    button {
+      margin:0 5px;
+    }
+  }
+  .name-input{
+    width:70%
+  }
+  .users-list-loader{
+    height: 30px;
+    margin-top: 20px;
+  }
+}
+.list-not-available{
+  margin-top: 40px;
+  color: lightgrey;
+}
