@@ -2,8 +2,8 @@ import React from 'react';
 import {Route, IndexRedirect} from 'react-router';
 
 import Main from './components/main.react';
-import UsersList from './components/users-list.react';
-import UserForm from './components/user-form.react';
+import UsersList from './components/users/list/list.react';
+import UserForm from './components/users/form/form.react';
 
 export default (
   <Route path="/" component={Main}>

@@ -1,6 +1,11 @@
 {
-  "presets": ["es2015","stage-3","react"],
+  "presets": [
+    "es2015",
+    "stage-3",
+    "react"
+  ],
   "plugins": [
+    "transform-es2015-object-super",
     "transform-runtime"
   ]
 }

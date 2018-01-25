@@ -9,13 +9,13 @@ export default {
             const response = await axios.get(`${config.serverBaseUrl}/users`, {
                 params: {page, limit}
             });
-
-            // emulate loading
             setTimeout(() => {
-                UsersActions.receiveUsersData(response.data ? response.data : []);
+                UsersActions.getUsersDataChanged(response.data ? response.data : []);
             }, 2000);
         } catch(err) {
-            console.log("Error fetching users data");
+            UsersActions.getUsersDataError(err);
+
+            console.log("Error fetching users list data");
             console.error(err);
         }
     },
@@ -23,8 +23,12 @@ export default {
     async fetchOne(id) {
         try {
             const response = await axios.get(`${config.serverBaseUrl}/user/${id}`, {});
-            UsersActions.receiveUserData(response.data ? response.data : {});
+            setTimeout(() => {
+                UsersActions.getUserDataChanged(response.data ? response.data : {});
+            }, 1500);
         } catch(err) {
+            UsersActions.getUserDataError(err);
+            
             console.log("Error fetching user data");
             console.error(err);
         }
@@ -33,9 +37,13 @@ export default {
     async save(id, data) {
         try {
             const response = await axios.post(`${config.serverBaseUrl}/user/${id}`, data);
-            UsersActions.saveUserData(response.data ? response.data : {});
+            setTimeout(() => {
+                UsersActions.saveUserDataSuccess(response.data ? response.data : {});
+            }, 1000);
         } catch(err) {
-            console.log("Error saving user data:");
+            UsersActions.saveUserDataError(err);
+            
+            console.log("Error saving user data");
             console.error(err);
         }
     }

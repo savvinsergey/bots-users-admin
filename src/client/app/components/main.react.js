@@ -1,16 +1,9 @@
 import React from 'react';
 
-export default class Main extends React.Component {
-    constructor(props){
-        super(props);
-    }
+const Main = ({children}) => (
+    <div className="row">
+        {children}
+    </div>
+);
 
-    render(){
-        return (
-            <div className="row">
-                {this.props.children}
-            </div>
-        );
-    }
-
-}
+export default Main;
